@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 // import Tabs from "@mui/material/Tabs";
 // import Tab from "@mui/material/Tab";
@@ -41,6 +41,22 @@ TabPanel.propTypes = {
 // }
 
 export default function Main() {
+  const [taskGroup, setTaskGroup] = useState([
+    {
+      id: 1,
+      group: "shoppinglist",
+      title: "aaa",
+      text: "Learn Node",
+      checked: false,
+    },
+  ]);
+
+  const onAddClick = (value) => {
+    console.log(value);
+    const taskGroupCopy = [...taskGroup];
+    taskGroupCopy.unshift({ text: value });
+    setTaskGroup(taskGroupCopy);
+  };
   const [value, setValue] = React.useState(0);
 
   //   const handleChange = (event, newValue) => {
@@ -56,13 +72,18 @@ export default function Main() {
         display: "flex",
         justifyContent: "center",
         height: "88vh",
+        overflow: "scroll",
         // border: "1px dashed grey",
         // background: "red",
       }}
     >
       <TabPanel value={value} index={0}>
-        <InputField />
-        <TasksList />
+        <InputField
+          addClick={(e) => {
+            onAddClick(e);
+          }}
+        />
+        <TasksList tasks={taskGroup} />
       </TabPanel>
       {/* <TabPanel value={value} index={1}>
         Item Two

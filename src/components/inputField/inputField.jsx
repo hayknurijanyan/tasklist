@@ -1,19 +1,21 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import DeleteIcon from "@mui/icons-material/Delete";
-import SendIcon from "@mui/icons-material/Send";
 import Stack from "@mui/material/Stack";
-import Icon from "@mui/material/Icon";
+
 import { Fab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 
-export default function InputField() {
-  const [value, setValue] = React.useState("Controlled");
+export default function InputField(props) {
+  const [value, setValue] = React.useState("");
 
   const handleChange = (event) => {
     setValue(event.target.value);
+  };
+
+  const onAddClick = () => {
+    props.addClick(value);
+    setValue("");
   };
 
   return (
@@ -31,10 +33,18 @@ export default function InputField() {
           label="Add task"
           placeholder="Whats your plan?"
           multiline
+          value={value}
+          onChange={handleChange}
         />
         <div style={{ height: "90px", marginTop: "15px" }}>
           <Stack direction="row" spacing={1}>
-            <Fab color="primary" aria-label="add">
+            <Fab
+              color="primary"
+              aria-label="add"
+              onClick={() => {
+                onAddClick();
+              }}
+            >
               <AddIcon />
             </Fab>
           </Stack>

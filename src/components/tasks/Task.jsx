@@ -23,7 +23,8 @@ const Item = styled(Paper)(({ theme }) => ({
   marginRight: "70px",
 }));
 
-const Task = () => {
+const Task = (props) => {
+  const { data } = props;
   return (
     <div style={{ marginTop: "8px" }}>
       <Stack
@@ -44,7 +45,7 @@ const Task = () => {
           <FormGroup>
             <FormControlLabel
               control={<Checkbox defaultChecked />}
-              label="sdsd"
+              label={data.text}
             />
           </FormGroup>
           {/* <Fab color="primary" aria-label="edit"> */}

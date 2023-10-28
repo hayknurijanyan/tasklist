@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Task from "./Task";
 
-const TasksList = () => {
+const TasksList = (props) => {
+  const tasks = props.tasks;
+
   return (
     <>
-      <Task />
-      <Task />
-      <Task />
+      {tasks.map((t, i) => (
+        <Task key={i} data={t} />
+      ))}
     </>
   );
 };

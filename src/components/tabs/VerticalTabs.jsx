@@ -60,13 +60,13 @@ export default function VerticalTabs() {
         justifyContent: "left",
       }}
     >
-      <Tab label="Item One" {...a11yProps(0)} />
-      <Tab label="Item Two" {...a11yProps(1)} />
-      <Tab label="Item Three" {...a11yProps(2)} />
-      <Tab label="Item Four" {...a11yProps(3)} />
-      <Tab label="Item Five" {...a11yProps(4)} />
-      <Tab label="Item Six" {...a11yProps(5)} />
-      <Tab label="Item Seven" {...a11yProps(6)} />
+      <Tab label="Shopping List" {...a11yProps(0)} />
+      <Tab label="Today's Todo" {...a11yProps(1)} />
+      <Tab label="Monthly tasks" {...a11yProps(2)} />
+      <Tab label="Workspace" {...a11yProps(3)} />
+      <Tab label="Gym" {...a11yProps(4)} />
+      <Tab label="Family" {...a11yProps(5)} />
+      <Tab label="Yearly tasks" {...a11yProps(6)} />
     </Tabs>
   );
 }
